@@ -1,0 +1,158 @@
+/* General Form Styling */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px 0;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button[type="button"] {
+  background-color: #007bff;
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+/* Bank Account Section */
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 18px;
+}
+
+.bank-account {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+
+.bank-account input {
+  margin-bottom: 10px;
+}
+
+button.remove-btn {
+  background-color: #f44336;
+  margin-left: 5px;
+}
+
+button.remove-btn:hover {
+  background-color: #d32f2f;
+}
+
+button.set-primary-btn {
+  background-color: #ff9800;
+}
+
+button.set-primary-btn:hover {
+  background-color: #e68900;
+}
+
+/* File Upload Section */
+input[type="file"] {
+  padding: 5px;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 8px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #45a049;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Checkbox and Consent */
+.consent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  input[type="number"] {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}

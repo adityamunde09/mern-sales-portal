@@ -1,0 +1,64 @@
+.hr-section {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hr-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.hr-section h3 {
+  margin-top: 20px;
+  color: #555;
+}
+
+.hr-announcements,
+.hr-leave-status,
+.hr-links {
+  margin-bottom: 20px;
+}
+
+.hr-announcements ul,
+.hr-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hr-announcements li,
+.hr-links li {
+  margin-bottom: 10px;
+}
+
+.hr-announcements h4 {
+  margin: 5px 0;
+}
+
+.hr-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.hr-links a:hover {
+  text-decoration: underline;
+}
+
+.hr-leave-status table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hr-leave-status th,
+.hr-leave-status td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.hr-leave-status th {
+  background-color: #f4f4f4;
+  color: #333;
+}
