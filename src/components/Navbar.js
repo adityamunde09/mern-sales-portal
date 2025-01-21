@@ -21,6 +21,10 @@ function Navbar() {
         <Button color="inherit" component={Link} to="/hr-section">
           HR Section
         </Button>
+        {/* Login Button */}
+        <Button color="inherit" component={Link} to="/login">
+          Login
+        </Button>
       </Toolbar>
     </AppBar>
   );
