@@ -156,3 +156,32 @@ button[type="submit"]:hover {
     padding: 8px 12px;
   }
 }
+
+.bank-account-container {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+}
+
+.bank-account-container div {
+  margin-bottom: 8px;
+}
+
+.bank-account-container label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.bank-account-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.bank-account-container button {
+  margin-right: 8px;
+}

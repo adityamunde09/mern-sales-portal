@@ -78,7 +78,7 @@ const AddPartner = ({ onAddPartner }) => {
 
   return (
     <div>
-      <h2>Add Business Partner</h2>
+      <h2>Affiliate Partner Information</h2>
       <form onSubmit={(e) => e.preventDefault()}>
         {step === 1 && (
           <div>
@@ -168,25 +168,72 @@ const AddPartner = ({ onAddPartner }) => {
           <div>
             <h3>Step 3: Bank Details</h3>
             {bankAccounts.map((account, index) => (
-              <div key={index}>
-                <input
-                  type="text"
-                  placeholder="Bank Name"
-                  value={account.bankName}
-                  onChange={(e) => {
-                    const updated = [...bankAccounts];
-                    updated[index].bankName = e.target.value;
-                    setBankAccounts(updated);
-                  }}
-                />
+              <div key={index} className="bank-account-container">
+                <div>
+                  <label>Bank Name:</label>
+                  <input
+                    type="text"
+                    placeholder="Bank Name"
+                    value={account.bankName}
+                    onChange={(e) => {
+                      const updated = [...bankAccounts];
+                      updated[index].bankName = e.target.value;
+                      setBankAccounts(updated);
+                    }}
+                  />
+                </div>
+                <div>
+                  <label>IFSC Code:</label>
+                  <input
+                    type="text"
+                    placeholder="IFSC Code"
+                    value={account.ifsc}
+                    onChange={(e) => {
+                      const updated = [...bankAccounts];
+                      updated[index].ifsc = e.target.value;
+                      setBankAccounts(updated);
+                    }}
+                  />
+                </div>
+                <div>
+                  <label>Account Holder Name:</label>
+                  <input
+                    type="text"
+                    placeholder="Account Holder Name"
+                    value={account.accountHolder}
+                    onChange={(e) => {
+                      const updated = [...bankAccounts];
+                      updated[index].accountHolder = e.target.value;
+                      setBankAccounts(updated);
+                    }}
+                  />
+                </div>
+                <div>
+                  <label>Account Number:</label>
+                  <input
+                    type="text"
+                    placeholder="Account Number"
+                    value={account.accountNumber}
+                    onChange={(e) => {
+                      const updated = [...bankAccounts];
+                      updated[index].accountNumber = e.target.value;
+                      setBankAccounts(updated);
+                    }}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    checked={account.isPrimary}
+                    onChange={() => handleSetPrimary(index)}
+                  />
+                  <label>Set as Primary</label>
+                </div>
                 <button
                   type="button"
                   onClick={() => handleRemoveBankAccount(index)}
                 >
                   Remove
-                </button>
-                <button type="button" onClick={() => handleSetPrimary(index)}>
-                  Set as Primary
                 </button>
               </div>
             ))}
@@ -195,6 +242,7 @@ const AddPartner = ({ onAddPartner }) => {
             </button>
           </div>
         )}
+
         {step === 4 && (
           <div>
             <h3>Step 4: Final Details</h3>
