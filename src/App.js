@@ -4,16 +4,94 @@ import Navbar from "./components/Navbar";
 import AddPartner from "./components/AddPartner";
 import PartnerDashboard from "./components/PartnerDashboard";
 import HRSection from "./components/HRSection";
-import "./styles/App.css"; // Importing modern CSS styling
 import Login from "./components/Login";
+import styled from "styled-components";
+
+// Styled Components
+const AppContainer = styled.div`
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+`;
+
+const HomeContainer = styled.div`
+  text-align: center;
+  margin-top: 20px;
+`;
+
+const PartnerList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const PartnerCard = styled.div`
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+`;
+
+const SectionContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+`;
+
+const SectionCard = styled.div`
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+`;
 
 function App() {
-  const [partners, setPartners] = useState([]); // Example state for managing partners
+  const [partners, setPartners] = useState([]); // State for managing partners
 
   return (
     <Router>
       <Navbar />
-      <div className="app-container">
+      <AppContainer>
         <Routes>
           <Route path="/" element={<Home partners={partners} />} />
           <Route
@@ -30,64 +108,62 @@ function App() {
           <Route path="/hr-section" element={<HRSection />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-      </div>
+      </AppContainer>
     </Router>
   );
 }
 
 const Home = ({ partners }) => (
-  <div className="home-container">
+  <HomeContainer>
     <h1>Welcome to the Sales Portal</h1>
-    {/* Displaying partners in a card layout */}
-    <div className="partner-list">
+    <PartnerList>
       {partners.length > 0 ? (
         partners.map((partner) => (
-          <div className="partner-card" key={partner.id}>
+          <PartnerCard key={partner.id}>
             <h3>{partner.name}</h3>
             <p>{partner.email}</p>
-          </div>
+          </PartnerCard>
         ))
       ) : (
         <p>No partners added yet.</p>
       )}
-    </div>
-    {/* Modern placeholders for other sections */}
-    <div className="sections-container">
+    </PartnerList>
+
+    <SectionContainer>
       <PartnerSummary />
       <PendingPartners />
       <ReviewSales />
       <AddTransaction />
-    </div>
-  </div>
+    </SectionContainer>
+  </HomeContainer>
 );
 
-// Example components with modern placeholders
 const PartnerSummary = () => (
-  <div className="section-card">
+  <SectionCard>
     <h2>Partner Summary</h2>
     <p>Insights about all partners.</p>
-  </div>
+  </SectionCard>
 );
 
 const PendingPartners = () => (
-  <div className="section-card">
+  <SectionCard>
     <h2>Pending Partners</h2>
     <p>Manage requests from pending partners.</p>
-  </div>
+  </SectionCard>
 );
 
 const ReviewSales = () => (
-  <div className="section-card">
+  <SectionCard>
     <h2>Review Sales</h2>
     <p>Track and review sales data.</p>
-  </div>
+  </SectionCard>
 );
 
 const AddTransaction = () => (
-  <div className="section-card">
+  <SectionCard>
     <h2>Add Transaction</h2>
     <p>Log new transactions for partners.</p>
-  </div>
+  </SectionCard>
 );
 
 export default App;
