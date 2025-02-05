@@ -6,6 +6,7 @@ import PartnerDashboard from "./components/PartnerDashboard";
 import HRSection from "./components/HRSection";
 import Login from "./components/Login";
 import styled from "styled-components";
+import { Chart } from "react-google-charts";
 
 // Styled Components
 const AppContainer = styled.div`
@@ -85,8 +86,20 @@ const SectionCard = styled.div`
   }
 `;
 
+const chartData = [
+  ["Category", "Value"],
+  ["A", 30],
+  ["B", 50],
+  ["C", 20],
+];
+
+const chartOptions = {
+  title: "3D Data Overview",
+  is3D: true,
+};
+
 function App() {
-  const [partners, setPartners] = useState([]); // State for managing partners
+  const [partners, setPartners] = useState([]);
 
   return (
     <Router>
@@ -125,7 +138,7 @@ const Home = ({ partners }) => (
           </PartnerCard>
         ))
       ) : (
-        <p>No partners added yet.</p>
+        <h4>Hey Sample Partner👋</h4>
       )}
     </PartnerList>
 
@@ -138,32 +151,17 @@ const Home = ({ partners }) => (
   </HomeContainer>
 );
 
-const PartnerSummary = () => (
+const SectionWithChart = ({ title, description }) => (
   <SectionCard>
-    <h2>Partner Summary</h2>
-    <p>Insights about all partners.</p>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <Chart chartType="PieChart" data={chartData} options={chartOptions} width="100%" height="200px" />
   </SectionCard>
 );
 
-const PendingPartners = () => (
-  <SectionCard>
-    <h2>Pending Partners</h2>
-    <p>Manage requests from pending partners.</p>
-  </SectionCard>
-);
-
-const ReviewSales = () => (
-  <SectionCard>
-    <h2>Review Sales</h2>
-    <p>Track and review sales data.</p>
-  </SectionCard>
-);
-
-const AddTransaction = () => (
-  <SectionCard>
-    <h2>Add Transaction</h2>
-    <p>Log new transactions for partners.</p>
-  </SectionCard>
-);
+const PartnerSummary = () => <SectionWithChart title="Partner Summary" description="Insights about all partners." />;
+const PendingPartners = () => <SectionWithChart title="Pending Partners" description="Manage requests from pending partners." />;
+const ReviewSales = () => <SectionWithChart title="Review Sales" description="Track and review sales data." />;
+const AddTransaction = () => <SectionWithChart title="Add Transaction" description="Log new transactions for partners." />;
 
 export default App;

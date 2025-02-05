@@ -10,7 +10,7 @@
 }
 
 .auth-links a {
-  color: #4f46e5;
+  color: #cccccc;
   font-weight: 600;
   text-decoration: none;
 }
@@ -35,6 +35,6 @@
 }
 
 .third-party-buttons button:hover {
-  background: #f4f5f7;
+  background: #4f46e5;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
